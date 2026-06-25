@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const calendly = 'https://calendly.com/voutsphysics/30min';
+
+const reasons = [
+  {
+    title: '7 Years of Experience',
+    body: 'Years of teaching experience across IB, IGCSE and A-Level Physics.',
+  },
+  {
+    title: 'MSc Physics, York University',
+    body: 'Master of Science (MSc) in Physics — deep subject expertise behind every lesson.',
+  },
+  {
+    title: 'Confusion into Clarity',
+    body: 'My approach focuses on turning confusion into clarity, not memorisation.',
+  },
+];
+
+const outcomes = [
+  'Build real conceptual understanding',
+  'Regain confidence step by step',
+  'Approach unfamiliar questions with a clear method',
+  'Follow a structured path towards exam success',
+];
+---
+
+<Layout
+  title="VoutsPhysics — Understand Physics. Perform with Confidence."
+  description="1-on-1 IB, IGCSE & A-Level Physics tutoring in Athens and online. A structured 12-week programme that turns confusion into clarity and builds real exam confidence."
+>
+  <Hero
+    eyebrow="IB & A-Level Physics ⚡"
+    title="Understand Physics. Perform with Confidence."
+    subtitle="A structured 12-week programme for IB & A-Level success — turning confusion into clarity and building strong problem-solving skills."
+  >
+    <div class="hero-actions">
+      <a href={calendly} target="_blank" rel="noopener" class="btn btn-on-dark">Book a Call Now</a>
+      <a href="/services/" class="btn btn-ghost-dark">View Services</a>
+    </div>
+  </Hero>
+
+  <!-- Why students choose VoutsPhysics -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow center">Why VoutsPhysics</p>
+      <h2 class="center" style="margin-bottom: var(--space-4);">Built for understanding, not cramming</h2>
+      <div class="grid grid-3">
+        {reasons.map((r) => (
+          <div class="card reason">
+            <h3>{r.title}</h3>
+            <p>{r.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The approach / outcomes -->
+  <section class="section-tight">
+    <div class="container approach">
+      <div class="approach-text">
+        <p class="eyebrow">The approach</p>
+        <h2>From hours of studying to genuine understanding</h2>
+        <p class="lead">
+          Many students spend hours on Physics and still don't fully understand the concepts.
+          Rather than memorising steps, students learn how to think through questions, recognise
+          patterns, and apply their knowledge with confidence.
+        </p>
+      </div>
+      <ul class="outcomes">
+        {outcomes.map((o) => (
+          <li><span class="check">✔</span>{o}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Ready to turn confusion into clarity?</h2>
+        <p>Book a free introductory call and let's map out your path to exam success.</p>
+      </div>
+      <a href={calendly} target="_blank" rel="noopener" class="btn btn-on-dark">Book a Call Now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .reason h3 { color: var(--accent); margin-bottom: 0.5rem; }
+
+  .approach {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .approach { grid-template-columns: 1.2fr 1fr; gap: var(--space-6); }
+  }
+  .outcomes { list-style: none; padding: 0; display: grid; gap: 0.9rem; }
+  .outcomes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.1rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+  }
+  .check {
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .cta-band { padding-block: var(--space-5); }
+  .cta-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .cta-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+  .cta-inner p { margin-top: 0.4rem; }
+</style>

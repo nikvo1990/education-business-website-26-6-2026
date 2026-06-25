@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const calendly = 'https://calendly.com/voutsphysics/30min';
+const facebook = 'https://www.facebook.com/profile.php?id=61578717674375';
+const instagram = 'https://www.instagram.com/voutsphysics/';
+---
+
+<Layout
+  title="Contact — VoutsPhysics"
+  description="Get in touch with VoutsPhysics. Book a free call, call +30 697 690 0146, or email voutsphysics@gmail.com. Based in Athens, Greece and available online."
+>
+  <Hero
+    compact
+    eyebrow="Contact"
+    title="Let's get started"
+    subtitle="Have a question, or ready to begin? Book a free introductory call or reach out directly — I'll get back to you personally."
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <!-- Contact details -->
+      <div class="contact-info">
+        <h2>Get in touch</h2>
+        <ul class="info-list">
+          <li>
+            <span class="info-label">Phone</span>
+            <a href="tel:+306976900146">+30 697 690 0146</a>
+          </li>
+          <li>
+            <span class="info-label">Email</span>
+            <a href="mailto:voutsphysics@gmail.com">voutsphysics@gmail.com</a>
+          </li>
+          <li>
+            <span class="info-label">Location</span>
+            <span>Athens, Greece &mdash; &amp; available online</span>
+          </li>
+        </ul>
+
+        <h3 class="follow-head">Follow along</h3>
+        <div class="socials">
+          <a href={instagram} target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
+          <a href={facebook} target="_blank" rel="noopener" class="btn btn-outline">Facebook</a>
+        </div>
+      </div>
+
+      <!-- Booking CTA -->
+      <aside class="booking card">
+        <h3>Book a free call</h3>
+        <p>
+          The easiest way to start is a short, no-pressure call. We'll talk through your goals and
+          how the 12-week programme can help you perform with confidence.
+        </p>
+        <a href={calendly} target="_blank" rel="noopener" class="btn btn-primary booking-btn">
+          Book a Call Now
+        </a>
+        <p class="booking-note">Opens my Calendly scheduling page in a new tab.</p>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .contact-grid { grid-template-columns: 1.1fr 0.9fr; gap: var(--space-5); }
+  }
+  .contact-info h2 { margin-bottom: var(--space-3); }
+  .info-list { list-style: none; padding: 0; display: grid; gap: 1.2rem; }
+  .info-list li { display: flex; flex-direction: column; gap: 0.2rem; }
+  .info-label {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .info-list a, .info-list span:not(.info-label) { font-size: 1.1rem; }
+  .info-list a { color: var(--navy); font-weight: 600; }
+  .info-list a:hover { color: var(--accent); }
+
+  .follow-head { margin: var(--space-4) 0 0.8rem; }
+  .socials { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  .booking { background: var(--surface); padding: var(--space-4); }
+  .booking h3 { color: var(--accent); margin-bottom: 0.7rem; }
+  .booking p { margin-bottom: 1.2rem; }
+  .booking-btn { width: 100%; justify-content: center; }
+  .booking-note { font-size: 0.85rem; color: var(--muted); margin-top: 0.8rem; margin-bottom: 0; }
+</style>

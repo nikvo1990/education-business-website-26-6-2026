@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const calendly = 'https://calendly.com/voutsphysics/30min';
+
+const challenges = [
+  'Studying without truly understanding',
+  'Losing confidence in Physics',
+  'Getting stuck on difficult questions',
+  'Revising without a clear plan',
+];
+
+const helps = [
+  'Build real conceptual understanding',
+  'Regain confidence step by step',
+  'Approach unfamiliar questions with a clear method',
+  'Follow a structured path towards exam success',
+];
+---
+
+<Layout
+  title="About — VoutsPhysics"
+  description="Meet your Physics tutor: 7 years of experience and an MSc in Physics, helping IB, IGCSE and A-Level students turn confusion into clarity through a calm, structured approach."
+>
+  <Hero
+    compact
+    eyebrow="About"
+    title="Turning confusion into clarity"
+    subtitle="I help IB and A-Level Physics students improve their performance — without relying on memorisation or last-minute cramming."
+  />
+
+  <section class="section">
+    <div class="container about-body measure">
+      <p class="lead">
+        Many students spend hours studying Physics but still don't fully understand the concepts.
+        Over time, this leads to frustration, loss of confidence, and difficulty when facing more
+        demanding problems.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="grid grid-2 compare">
+        <div class="card panel-problem">
+          <h3>Common challenges I see</h3>
+          <ul class="list-x">
+            {challenges.map((c) => <li><span class="mark x">✕</span>{c}</li>)}
+          </ul>
+        </div>
+        <div class="card panel-help">
+          <h3>How I help students</h3>
+          <ul class="list-check">
+            {helps.map((h) => <li><span class="mark v">✔</span>{h}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container about-body measure">
+      <h2>My approach</h2>
+      <p>
+        My approach focuses on turning confusion into clarity. I support students in building a
+        strong understanding of the core ideas, while also developing a clear and reliable way of
+        approaching problems. 💡
+      </p>
+      <p>
+        Rather than memorising steps, students learn how to think through questions, recognise
+        patterns, and apply their knowledge with confidence.
+      </p>
+      <p>
+        With teaching experience across IB, IGCSE and A-Level, I aim to bring a calm, structured,
+        and supportive approach to every lesson. The goal is simple: to help students think clearly,
+        solve problems effectively, and perform at their best in exams. 🎯
+      </p>
+    </div>
+  </section>
+
+  <section class="dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Let's talk about your goals</h2>
+        <p>Book a free introductory call and see how the 12-week programme could work for you.</p>
+      </div>
+      <a href={calendly} target="_blank" rel="noopener" class="btn btn-on-dark">Book a Call Now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-body p + p { margin-top: 1rem; }
+  .about-body h2 { margin-bottom: 1rem; }
+
+  .compare { align-items: start; }
+  .panel-problem h3 { color: var(--muted); margin-bottom: 1rem; }
+  .panel-help h3 { color: var(--accent); margin-bottom: 1rem; }
+  .list-x, .list-check { list-style: none; padding: 0; display: grid; gap: 0.8rem; }
+  .list-x li, .list-check li { display: flex; align-items: flex-start; gap: 0.7rem; }
+  .mark { flex-shrink: 0; font-weight: 700; line-height: 1.5; }
+  .mark.x { color: #C2553F; }
+  .mark.v { color: var(--accent); }
+
+  .cta-band { padding-block: var(--space-5); }
+  .cta-inner { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
+  @media (min-width: 768px) {
+    .cta-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+  .cta-inner p { margin-top: 0.4rem; }
+</style>

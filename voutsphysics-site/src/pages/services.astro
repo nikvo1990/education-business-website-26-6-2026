@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const calendly = 'https://calendly.com/voutsphysics/30min';
+
+const services = [
+  {
+    title: '1-on-1 Physics Tutoring',
+    body: 'Personalised one-to-one lessons in IB, IGCSE and A-Level Physics, tailored to your syllabus and exam board.',
+  },
+  {
+    title: '12-Week Structured Programme',
+    body: 'A clear, week-by-week path that builds understanding and confidence steadily — from where you are now to exam-ready.',
+  },
+  {
+    title: 'Exam Preparation & Problem-Solving',
+    body: 'Focused sessions on past papers, exam technique, and a reliable method for tackling unfamiliar questions.',
+  },
+  {
+    title: 'Career Mentorship',
+    body: 'Guidance for students considering Physics, engineering or STEM pathways beyond school.',
+  },
+];
+---
+
+<Layout
+  title="Services — VoutsPhysics"
+  description="1-on-1 IB, IGCSE & A-Level Physics tutoring, a structured 12-week programme, exam preparation and career mentorship. Available in person in Athens and online."
+>
+  <Hero
+    compact
+    eyebrow="Services"
+    title="Support built around how you learn"
+    subtitle="One-to-one Physics teaching focused on real understanding, clear problem-solving, and exam confidence."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        {services.map((s, i) => (
+          <div class="card service">
+            <span class="service-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="delivery card">
+        <div>
+          <h3>In person &amp; online</h3>
+          <p>Lessons are available face-to-face in Athens, Greece, or online from anywhere in the world.</p>
+        </div>
+        <a href={calendly} target="_blank" rel="noopener" class="btn btn-primary">Book a Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Not sure which fits best?</h2>
+        <p>Book a free call and we'll find the right starting point together.</p>
+      </div>
+      <a href={calendly} target="_blank" rel="noopener" class="btn btn-on-dark">Book a Call Now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service { position: relative; padding-top: var(--space-4); }
+  .service-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .service h3 { margin: 0.4rem 0 0.5rem; }
+
+  .delivery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: flex-start;
+    background: var(--surface);
+  }
+  @media (min-width: 768px) {
+    .delivery { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+  .delivery h3 { color: var(--accent); margin-bottom: 0.3rem; }
+
+  .cta-band { padding-block: var(--space-5); }
+  .cta-inner { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
+  @media (min-width: 768px) {
+    .cta-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+  .cta-inner p { margin-top: 0.4rem; }
+</style>
